@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is a prework from coderschool. The link is [here](https://quip.com/swTNAN8UZrTI)
 
-Things you may want to cover:
+This repository contains 2 parts:
 
-* Ruby version
+* Source code
 
-* System dependencies
+* The demo file
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![demo gif](https://github.com/minhhuynguyen91/prework_blog/blob/master/demo.gif)
