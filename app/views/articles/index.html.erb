@@ -1,9 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <h1>Sample blog </h1>
 
-<%= render @articles %>
+<h1>Sample blog </h1>
+
+<br>  
+<%= form_tag(articles_path, :method => "get") do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<br>
+
+<% if @articles.blank? %>
+
+  <h3> Sorry, your search is not found </h3>
+  
+<% else %>
+
+  <%= render @articles %>
+
+<% end %>
 
 <br>
 
