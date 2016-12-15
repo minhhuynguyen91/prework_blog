@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
 
+  
   def self.search(search)
     if search
       where("title ILIKE ?", "%#{search}%") 
@@ -7,4 +8,5 @@ class Article < ApplicationRecord
       where
     end
   end
+  is_impressionable
 end

@@ -1,14 +1,22 @@
+
 <p id="notice"><%= notice %></p>
 
 <div class="container">
 
+
+
 <h1>Sample blog </h1>
 
+<nav class="navbar navbar-light bg-faded">
+	<%= form_tag(articles_path, :method => "get") do %>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search", :name => nil %>
+	<% end %>
+</nav>
+
+
 <br>  
-<%= form_tag(articles_path, :method => "get") do %>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag "Search", :name => nil %>
-<% end %>
+
 
 <br>
 

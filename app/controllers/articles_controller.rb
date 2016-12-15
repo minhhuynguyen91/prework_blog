@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  #impressionist :actions => [:show,:index]
+  impressionist
+
 
   # GET /articles
   # GET /articles.json
@@ -14,12 +17,16 @@ class ArticlesController < ApplicationController
       @articles = Article.all
     end
 
+    #impressionist(@articles)
+
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @articles = Article.find(params[:id])
+    impressionist(@articles) 
   end
 
   # GET /articles/new
