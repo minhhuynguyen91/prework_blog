@@ -2,10 +2,11 @@
   <div class="col-sm-8">
     <div class="card">
       <div class="card-block">
-        <h4 class="card-title"><%= article.title %></h4>
+        <h4 class="card-title"><%= article.title %>  | Views: <%= article.page_view %> </h4>
         <p class="card-text"> <%= @markdown.render(article.body).html_safe %> </p>    
         </div>
         <div class="card-footer">
+          <%= link_to 'Show', article_path(article), class:'btn btn-info' %>
           <%= link_to 'Edit', edit_article_path(article), class:'btn btn-warning' %>
           <%= link_to 'Delete', article, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-danger' %>
         </div>

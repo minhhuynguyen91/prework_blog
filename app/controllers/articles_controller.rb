@@ -27,6 +27,10 @@ class ArticlesController < ApplicationController
   def show
     @articles = Article.find(params[:id])
     impressionist(@articles) 
+
+    @articles.page_view = @articles.impressionist_count
+    @articles.save
+
   end
 
   # GET /articles/new
