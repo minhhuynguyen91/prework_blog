@@ -28,7 +28,15 @@ class ArticlesController < ApplicationController
     @articles = Article.find(params[:id])
     impressionist(@articles) 
 
-    @articles.page_view = @articles.impressionist_count
+    if @articles.impressionist_count == nil
+
+      @articles.page_view = 0
+    else
+
+      @articles.page_view = @articles.impressionist_count
+
+    end
+
     @articles.save
 
   end
