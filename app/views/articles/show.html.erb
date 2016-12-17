@@ -2,14 +2,30 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @article.title %>
+  <%= @articles.title %>
 </p>
 
 <p>
   <strong>Body:</strong>
-  <%= @article.body %>
+  <%= @articles.body %>
 </p>
 
+<p> ------------ </p> 
+<p> <strong>Add your comment</strong> </p>
+
+<br>
+<%= form_for Comment.new, url: article_comments_path(@articles) do |f| %>
+  <%= f.label :'Name' %>
+  <%= f.text_field :name, style: 'width: 300px;', class: 'form-control' %>
+  <%= f.hidden_field :source_id, value: @articles.id %>
+  <%= f.hidden_field :source_type, value: "Article" %>
+  <br>
+  <%= f.label :content %> 
+  <%= f.text_area :content, style: 'width: 300px;', class: 'form-control' %>
+  <br>
+  <%= f.submit "Add comment", class: "btn btn-primary" %>
+
+<% end %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

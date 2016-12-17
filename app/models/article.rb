@@ -9,4 +9,9 @@ class Article < ApplicationRecord
     end
   end
   is_impressionable
+
+  def comments
+    Comment.where({ source_id: self.id, source_type: "Article" })
+  end
+
 end
