@@ -1,0 +1,12 @@
+<%= form_for Comment.new, url: article_comments_path(@articles) do |f| %>
+  <%= f.label :'Name' %>
+  <%= f.text_field :name, style: 'width: 300px;', class: 'form-control' %>
+  <%= f.hidden_field :source_id, value: @articles.id %>
+  <%# <%= f.text_field :source_id, value: @articles.id %>
+  <%= f.hidden_field :source_type, value: "Article" %>
+  <br>
+  <%= f.label :content %> 
+  <%= f.text_area :content, style: 'width: 300px;', class: 'form-control' %>
+  <br>
+  <%= f.submit "Add comment", class: "btn btn-primary" %>
+<% end %>

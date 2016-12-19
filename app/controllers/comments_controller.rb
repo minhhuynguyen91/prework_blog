@@ -5,8 +5,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @article  = Article.find(params[:article_id])
-    @comments = Comment.new(comment_params)
+    @articles  = Article.find(params[:article_id])
+    @comments  = Comment.new(comment_params)
     respond_to do |format|
       format.html
       format.json
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     
     @comments.save
 
-    redirect_to @article
+    redirect_to article_comments_path(@articles)
   end
 
   def show

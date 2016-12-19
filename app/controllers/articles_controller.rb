@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
     #impressionist(@articles)
 
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+
   end
 
   # GET /articles/1
