@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
     end
 
     @article.save
-
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   # GET /articles/new

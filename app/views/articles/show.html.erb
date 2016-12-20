@@ -1,40 +1,45 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+    <p>
+      <strong>Title:</strong>
+      <%= @article.title %>
+    </p>
+    
+    <p>
+      <strong>Body:</strong>
+      <%= @markdown.render(@article.body).html_safe %>
+    </p>
+    
+    <p> ------------ </p> 
+    <%= link_to 'Add new comment', '#modal-window', class:'btn btn-info', 'data-toggle' => 'modal' %>
+    
+    <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
-
-<p> ------------ </p> 
-<%= link_to 'Add new comment', '#modal-window', class:'btn btn-info', 'data-toggle' => 'modal' %>
-
-<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-         <h3 id="myModalLabel">Add comment</h3>
-       </div>
-       <div class="modal-body">
-          <%= render 'comments/form', article: @article %>
-       </div>
-      <div class="modal-footer">
-         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+             <h3 id="myModalLabel">Add comment</h3>
+           </div>
+           <div class="modal-body">
+              <%= render 'comments/form', article: @article %>
+           </div>
+          <div class="modal-footer">
+             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          </div>
+        </div>
       </div>
+    
     </div>
-  </div>
 
+    <br>
+    
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+    <%= link_to 'Back', articles_path %>
+    </div>
+  </div>   
 </div>
-
-
-<br>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
