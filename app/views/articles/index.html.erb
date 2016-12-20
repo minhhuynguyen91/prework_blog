@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <p id="notice"><%= notice %></p>
 
 <div class="container">
@@ -9,8 +9,12 @@
 
 <nav class="navbar navbar-light bg-faded">
 	<%= form_tag(articles_path, :method => "get") do %>
-	<%= text_field_tag :search, params[:search] %>
-	<%= submit_tag "Search", :name => nil %>
+	<%= text_field_tag :search, params[:search], placeholder: 'Search title' %>
+	<%# <%= submit_tag "Search", :name => nil %>
+	<button type='submit', class='btn btn-info btn-sm'> 
+		<span class="glyphicon glyphicon-search"></span> Search 
+	</button>
+
 	<% end %>
 </nav>
 

@@ -26,19 +26,19 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @articles = Article.find(params[:id])
-    impressionist(@articles) 
+    @article = Article.find(params[:id])
+    impressionist(@article) 
 
-    if @articles.impressionist_count == nil
+    if @article.impressionist_count == nil
 
-      @articles.page_view = 0
+      @article.page_view = 0
     else
 
-      @articles.page_view = @articles.impressionist_count
+      @article.page_view = @article.impressionist_count
 
     end
 
-    @articles.save
+    @article.save
 
   end
 
