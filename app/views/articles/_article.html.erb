@@ -12,7 +12,7 @@
     </div>
 
     <div class="card-block", style="display:inline;">
-      <h4 class="card-title"><%= article.title %>  | Views: <%= article.page_view %> </h4>
+      <h4 class="card-title"><%= article.title %>  <span class="glyphicon glyphicon-eye-open" style="float:right"> <%= article.page_view %> </span></h4>
       <p class="card-text"> <%= @markdown.render(article.body).html_safe %> </p>    
     </div>
 
