@@ -8,16 +8,19 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
-    
+
     if params[:search]
-      #@articles = Article.search(params[:search]).order("created_at DESC")
       @articles = Article.search(params[:search])
-    else
-      #@articles = Article.all.order("created_at DESC")
+      if @articles.blank?
+        @articles = Article.tagged_with(params[:search])
+      end
+
+    else 
       @articles = Article.all
+      #@articles = Article.tagged_with(params[:tag_name])
     end
 
-    #impressionist(@articles)
+
 
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
@@ -100,6 +103,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :tag_list)
     end
 end

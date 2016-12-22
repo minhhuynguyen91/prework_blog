@@ -6,7 +6,7 @@
 
 
 
-<h1>Sample blog </h1>
+<h1> Minh's sample blog </h1>
 
 <nav class="navbar navbar-light bg-faded">
 	<%= link_to 'https://github.com/minhhuynguyen91/prework_blog' do  %>
@@ -27,8 +27,7 @@
 
 
 	<%= form_tag(articles_path, :method => "get") do %>
-		<%= text_field_tag :search, params[:search], placeholder: 'Search title' %>
-		<%# <%= submit_tag "Search", :name => nil %>
+		<%= text_field_tag :search, params[:search], placeholder: 'Search title or tag name' %>
 		<button type='submit', class='btn btn-info btn-sm'> 
 			<span class="glyphicon glyphicon-search"></span> Search 
 		</button>
@@ -41,6 +40,7 @@
 
 
 <br>
+
 
 <% if @articles.blank? %>
 

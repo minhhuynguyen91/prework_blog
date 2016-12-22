@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-
+  acts_as_taggable
   
   def self.search(search)
     if search

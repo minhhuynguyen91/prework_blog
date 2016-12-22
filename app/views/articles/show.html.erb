@@ -14,6 +14,15 @@
       <%= @markdown.render(@article.body).html_safe %>
     </p>
     
+    <p>
+      <strong> Tags: </strong> 
+      <% @article.tag_list.each do |tag_name| %>
+        <span style="color: #fff ;background-color: #049;"> <%= tag_name %> </span> &nbsp
+        
+      <% end %>
+    </p>
+
+
     <p> ------------ </p> 
     <%= link_to 'Add new comment', '#modal-window', class:'btn btn-info', 'data-toggle' => 'modal' %>
     

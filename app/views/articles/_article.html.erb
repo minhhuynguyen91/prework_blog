@@ -13,6 +13,15 @@
 
     <div class="card-block", style="display:inline;">
       <h4 class="card-title"><%= article.title %>  <span class="glyphicon glyphicon-eye-open" style="float:right"> <%= article.page_view %> </span></h4>
+      <p class="card-text">  
+        <p> 
+          <small> Tags :
+            <% article.tag_list.each do |tag_name| %>
+              <span style="color: #fff ;background-color: #049;"> <%= tag_name %> </span> &nbsp
+            <% end %>
+          </small>
+        </p>
+      </p>
       <p class="card-text"> <%= @markdown.render(article.body).html_safe %> </p>    
     </div>
 
