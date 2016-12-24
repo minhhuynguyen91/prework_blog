@@ -13,7 +13,6 @@ URL: **https://coderschool-prework-blog.herokuapp.com/articles**
 
 The following **required** functionality is complete:
 
-> HINT: mark the items you completed with [x]
 
 * [x] User can create a new post, formatted using the Markdown language.
 * [x] User can edit an existing post.
