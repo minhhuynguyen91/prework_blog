@@ -32,7 +32,22 @@
 
       <div class="actions">
         <%= f.submit class:'btn btn-primary' %>
+        <%= button_tag(type: 'submit', class: "btn btn-link", :name => "preview_button") do %>
+        Preview
+        <% end %>
       </div>
+
+      <br>
+
+       <% if params[:preview_button] %>
+         <%= @markdown.render(@article.body).html_safe %>
+       <% end %>
+
+
+
     <% end %>
+    <br>
+    
   </div>
 </div>
+<br>

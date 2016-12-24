@@ -52,20 +52,26 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @article = Article.find(params[:id])
   end
 
   # POST /articles
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    
     respond_to do |format|
-      if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
-      else
+      if params[:preview_button]
         format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+      else
+        if @article.save
+          format.html { redirect_to @article, notice: 'Article was successfully created.' }
+          format.json { render :show, status: :created, location: @article }
+        else
+          format.html { render :new }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -73,15 +79,25 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    
+    @article = Article.find(params[:id])
+    @article.attributes = article_params
+
     respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
-      else
+      if params[:preview_button]
         format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+      else
+        if @article.save
+          format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+          format.json { render :show, status: :ok, location: @article }
+        else
+          format.html { render :edit }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
       end
     end
+
   end
 
   # DELETE /articles/1
