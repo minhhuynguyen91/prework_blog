@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  #impressionist :actions => [:show,:index]
-  impressionist
+  impressionist :actions => [:show]
+  #impressionist
 
 
   # GET /articles
@@ -63,7 +63,7 @@ class ArticlesController < ApplicationController
     
     respond_to do |format|
       if params[:preview_button]
-        format.html { render :new }
+        format.html { redirect_to edit_article_path(@article) }
       else
         if @article.save
           format.html { redirect_to @article, notice: 'Article was successfully created.' }
