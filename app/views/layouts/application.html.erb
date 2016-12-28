@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <%= link_to "Blog", articles_path , id: "blog" %>
+    </header>
     <%= yield %>
   </body>
 </html>
