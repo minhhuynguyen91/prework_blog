@@ -62,7 +62,7 @@ class ArticlesController < ApplicationController
     
     respond_to do |format|
       if params[:preview_button]
-        format.html { redirect_to edit_article_path(@article) }
+        format.html { render :new }
       else
         if @article.save
           format.html { redirect_to @article, notice: 'Article was successfully created.' }
