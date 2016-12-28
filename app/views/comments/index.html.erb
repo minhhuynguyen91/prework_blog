@@ -2,8 +2,13 @@
 
 <h1> Comment section </h1>
 
-<%= render @comments %>
+<%= link_to 'Comments', '#', id: "comments-link" %>
 
+<div id='comments-section'>
+	<%= render @comments %>	
+</div>
+
+<br>
 <%= link_to 'Back', articles_path, class:'btn btn-info' %>
 
 </div>

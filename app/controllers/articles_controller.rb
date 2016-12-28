@@ -15,9 +15,8 @@ class ArticlesController < ApplicationController
         @articles = Article.tagged_with(params[:search])
       end
 
-    else 
-      @articles = Article.all
-      #@articles = Article.tagged_with(params[:tag_name])
+    elsif params[:tag]
+      @articles = Article.tagged_with(params[:tag]) 
     end
 
 

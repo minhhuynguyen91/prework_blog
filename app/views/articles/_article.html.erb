@@ -16,9 +16,7 @@
       <p class="card-text">  
         <p> 
           <small> Tags :
-            <% article.tag_list.each do |tag_name| %>
-              <span style="color: #fff ;background-color: #049;"> <%= tag_name %> </span> &nbsp
-            <% end %>
+            <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
           </small>
         </p>
       </p>
