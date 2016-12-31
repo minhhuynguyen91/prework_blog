@@ -23,6 +23,11 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.where({:source_id => params[:article_id], :source_type => "Article"})
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   

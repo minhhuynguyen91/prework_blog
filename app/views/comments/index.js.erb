@@ -1,0 +1,6 @@
+var showString 	 = document.getElementById("comments-link").innerHTML;
+var toggleString = (showString == 'Show comments' ? 'Hide comments' : 'Show comments');
+
+document.getElementById("comments-link").innerHTML = toggleString;
+
+$('#comments').append("<%= j render @comments %>")

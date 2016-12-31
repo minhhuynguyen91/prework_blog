@@ -5,13 +5,15 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
+  </head>
+  <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <%= link_to "Blog", articles_path , id: "blog_header" %>
+  </nav>
+    
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <%= link_to "Blog", articles_path , id: "blog" %>
-    </header>
+    
     <%= yield %>
   </body>
 </html>

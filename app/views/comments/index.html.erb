@@ -1,11 +1,13 @@
 <div class="container">
 
-<h1> Comment section </h1>
+<h3> Comment section </h3>
 
-<%= link_to 'Comments', '#', id: "comments-link" %>
+<%= link_to 'Show comments', '#', id: "comments-link", :remote => true %>
 
 <div id='comments-section'>
-	<%= render @comments %>	
+	<div id="comments">
+		<%= render @comments %>
+	</div>	
 </div>
 
 <br>
