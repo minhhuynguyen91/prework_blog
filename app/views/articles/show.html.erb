@@ -5,12 +5,11 @@
   <div class="row">
     <div class="col-sm-8">
     <p>
-      <strong>Title:</strong>
-      <%= @article.title %>
+      <h1> <%= @article.title %> </h1>
     </p>
     
     <p>
-      <strong>Body:</strong>
+      
       <%= @markdown.render(@article.body).html_safe %>
     </p>
     

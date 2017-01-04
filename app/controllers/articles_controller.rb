@@ -65,11 +65,12 @@ class ArticlesController < ApplicationController
         format.html { render :new }
       else
         if @article.save
-          format.html { redirect_to @article, notice: 'Article was successfully created.' }
-          format.json { render :show, status: :created, location: @article }
+          #format.json { render :show, status: :created, location: @article }
+          format.html { redirect_to @article}
+          flash[:success] = "Article was successfully created."
         else
           format.html { render :new }
-          format.json { render json: @article.errors, status: :unprocessable_entity }
+          #format.json { render json: @article.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -88,11 +89,12 @@ class ArticlesController < ApplicationController
         format.html { render :edit }
       else
         if @article.save
-          format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-          format.json { render :show, status: :ok, location: @article }
+          format.html { redirect_to @article}
+          #format.json { render :show, status: :ok, location: @article }
+          flash[:success] = "Article was successfully updated."
         else
           format.html { render :edit }
-          format.json { render json: @article.errors, status: :unprocessable_entity }
+          #format.json { render json: @article.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -105,8 +107,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to articles_url}
+      #format.json { head :no_content }
+      flash[:alert] = "Article with id:#{@article.id} was successfully destroyed."
     end
   end
 

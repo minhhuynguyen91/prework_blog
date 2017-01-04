@@ -8,12 +8,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   </head>
-  <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <%= link_to "Blog", articles_path , id: "blog_header" %>
-  </nav>
     
   <body>
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <%= link_to "Blog", articles_path , id: "blog_header" %>
+    </nav>
+    <%= render 'layouts/notify' %>    
     <%= yield %>
   </body>
 </html>
